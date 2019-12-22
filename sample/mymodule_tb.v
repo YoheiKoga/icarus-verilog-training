@@ -1,0 +1,24 @@
+module myModule_tb();
+    wire out;
+    reg clock;
+
+    always begin
+        #1 clock =!clock;
+    end
+
+    initial begin
+        // initialize clock
+        clock = 0;
+
+        // end simulation
+        #10 $finish();
+    end
+
+    myModule notGate(clock, out);
+
+    initial begin
+        $dumpfile("mymodule_test.vcd");
+        $dumpvars(0, myModule_tb);
+    end
+
+endmodule // myModule_tb
