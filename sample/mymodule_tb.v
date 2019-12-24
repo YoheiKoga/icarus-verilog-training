@@ -3,7 +3,7 @@ module myModule_tb();
     reg clock;
 
     always begin
-        #1 clock =!clock;
+        #2 clock =!clock;
     end
 
     initial begin
@@ -11,7 +11,7 @@ module myModule_tb();
         clock = 0;
 
         // end simulation
-        #10 $finish();
+        #100 $finish();
     end
 
     myModule notGate(clock, out);
