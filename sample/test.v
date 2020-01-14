@@ -1,10 +1,14 @@
-module TEST(
-    input CLK,
-    output reg [3:0] counter = 4'b0
+module testtest(
+    input a,
+    input b,
+    input c,
+    input d,
+    output outAandB,
+    output outCandD,
+    output result
 );
+    assign outAandB = a & b;
+    assign outCandD = c & d;
+    assign result = outAandB & outCandD;
 
-always @(posedge CLK) begin
-    counter = counter + 1;
-end
-
-endmodule // TESTintpu CLK,
+endmodule
