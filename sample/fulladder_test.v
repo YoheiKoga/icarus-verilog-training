@@ -22,34 +22,34 @@ module fulladder_test();
         carryin = 0;
     end
 
+    initial begin
+        #20 input1 = 1;
+        #20 input2 = 1;
+        #20 input1 = 0;
+        #20 carryin = 1;
+        #20 input2 = 0;
+        #20 input1 = 1;
+        #20 input2 = 1;
+        #40;
+    end
+
     // initial begin
-    //     #20 input1 = 1;
-    //     #20 input2 = 1;
-    //     #20 input1 = 0;
-    //     #20 carryin = 1;
-    //     #20 input2 = 0;
-    //     #20 input1 = 1;
-    //     #20 input2 = 1;
-    //     #40;
+    //     forever begin
+    //         #3 input1 = $random;
+    //     end
     // end
 
-    initial begin
-        forever begin
-            #3 input1 = $random;
-        end
-    end
+    // initial begin
+    //     forever begin
+    //         #6 input2 = $random;
+    //     end
+    // end
 
-    initial begin
-        forever begin
-            #6 input2 = $random;
-        end
-    end
-
-    initial begin
-        forever begin
-            #9 carryin = $random;
-        end
-    end
+    // initial begin
+    //     forever begin
+    //         #9 carryin = $random;
+    //     end
+    // end
 
     initial begin
         #200 $finish();

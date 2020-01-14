@@ -1,0 +1,97 @@
+#! /usr/local/Cellar/icarus-verilog/10.3/bin/vvp
+:ivl_version "10.3 (stable)" "(v10_3)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x7ff117500070 .scope module, "multiplexer2_tb" "multiplexer2_tb" 2 1;
+ .timescale 0 0;
+v0x7ff117518020_0 .var "cntrl", 0 0;
+v0x7ff1175180c0_0 .var "in1", 0 0;
+v0x7ff117518170_0 .var "in2", 0 0;
+v0x7ff117518240_0 .net "out", 0 0, L_0x7ff1175182f0;  1 drivers
+S_0x7ff117507ff0 .scope module, "uut" "multiplexer2_1" 2 5, 3 1 0, S_0x7ff117500070;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "out"
+    .port_info 1 /INPUT 1 "cntrl"
+    .port_info 2 /INPUT 1 "in1"
+    .port_info 3 /INPUT 1 "in2"
+v0x7ff117500230_0 .net "cntrl", 0 0, v0x7ff117518020_0;  1 drivers
+v0x7ff117517dd0_0 .net "in1", 0 0, v0x7ff1175180c0_0;  1 drivers
+v0x7ff117517e70_0 .net "in2", 0 0, v0x7ff117518170_0;  1 drivers
+v0x7ff117517f20_0 .net "out", 0 0, L_0x7ff1175182f0;  alias, 1 drivers
+L_0x7ff1175182f0 .functor MUXZ 1, v0x7ff1175180c0_0, v0x7ff117518170_0, v0x7ff117518020_0, C4<>;
+    .scope S_0x7ff117500070;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x7ff117518020_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x7ff1175180c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x7ff117518170_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_0x7ff117500070;
+T_1 ;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x7ff1175180c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x7ff117518170_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x7ff1175180c0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x7ff117518170_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x7ff1175180c0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x7ff117518170_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x7ff1175180c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x7ff117518170_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x7ff117518020_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x7ff1175180c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x7ff117518170_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x7ff1175180c0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x7ff117518170_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x7ff1175180c0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x7ff117518170_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x7ff1175180c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x7ff117518170_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 50 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_0x7ff117500070;
+T_2 ;
+    %vpi_call 2 54 "$monitor", $time, ", out=%b, cntrl=%b, in1=%b, in2=%b", v0x7ff117518240_0, v0x7ff117518020_0, v0x7ff1175180c0_0, v0x7ff117518170_0 {0 0 0};
+    %vpi_call 2 55 "$dumpfile", "multiplexer.vcd" {0 0 0};
+    %vpi_call 2 56 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x7ff117500070 {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "multiplexer_test.v";
+    "multiplexer.v";

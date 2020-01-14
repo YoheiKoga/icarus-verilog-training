@@ -8,5 +8,7 @@ module fulladder(
 );
 
     assign {cout, A} = cin + y + x;
+    // assign A = ((~cin) & x & (~y));
+    // assign cout = ((~cin) & x & y);
 
 endmodule // fulladder
