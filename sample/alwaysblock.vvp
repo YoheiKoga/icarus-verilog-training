@@ -1,0 +1,97 @@
+#! /usr/local/Cellar/icarus-verilog/10.3/bin/vvp
+:ivl_version "10.3 (stable)" "(v10_3)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x7fdc6ae00430 .scope module, "stimulus" "stimulus" 2 3;
+ .timescale -9 -9;
+v0x7fdc6ae10b20_0 .var "x", 0 0;
+v0x7fdc6ae10bc0_0 .var "y", 0 0;
+v0x7fdc6ae10c70_0 .net "z", 0 0, v0x7fdc6ae10a10_0;  1 drivers
+E_0x7fdc6ae001e0 .event edge, v0x7fdc6ae10970_0;
+S_0x7fdc6ae00590 .scope module, "uut" "comparator" 2 12, 3 1 0, S_0x7fdc6ae00430;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "x"
+    .port_info 1 /INPUT 1 "y"
+    .port_info 2 /OUTPUT 1 "z"
+v0x7fdc6ae00770_0 .var "p", 0 0;
+v0x7fdc6ae10820_0 .var "q", 0 0;
+v0x7fdc6ae108c0_0 .net "x", 0 0, v0x7fdc6ae10b20_0;  1 drivers
+v0x7fdc6ae10970_0 .net "y", 0 0, v0x7fdc6ae10bc0_0;  1 drivers
+v0x7fdc6ae10a10_0 .var "z", 0 0;
+E_0x7fdc6ae00740 .event edge, v0x7fdc6ae10970_0, v0x7fdc6ae108c0_0;
+    .scope S_0x7fdc6ae00590;
+T_0 ;
+    %wait E_0x7fdc6ae00740;
+    %load/vec4 v0x7fdc6ae108c0_0;
+    %inv;
+    %load/vec4 v0x7fdc6ae10970_0;
+    %inv;
+    %and;
+    %store/vec4 v0x7fdc6ae00770_0, 0, 1;
+    %load/vec4 v0x7fdc6ae108c0_0;
+    %load/vec4 v0x7fdc6ae10970_0;
+    %and;
+    %store/vec4 v0x7fdc6ae10820_0, 0, 1;
+    %load/vec4 v0x7fdc6ae00770_0;
+    %load/vec4 v0x7fdc6ae10820_0;
+    %or;
+    %store/vec4 v0x7fdc6ae10a10_0, 0, 1;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0x7fdc6ae00430;
+T_1 ;
+    %wait E_0x7fdc6ae001e0;
+    %delay 1, 0;
+    %load/vec4 v0x7fdc6ae10b20_0;
+    %inv;
+    %store/vec4 v0x7fdc6ae10b20_0, 0, 1;
+    %delay 1, 0;
+    %load/vec4 v0x7fdc6ae10b20_0;
+    %inv;
+    %store/vec4 v0x7fdc6ae10b20_0, 0, 1;
+    %delay 1, 0;
+    %load/vec4 v0x7fdc6ae10b20_0;
+    %inv;
+    %store/vec4 v0x7fdc6ae10b20_0, 0, 1;
+    %jmp T_1;
+    .thread T_1, $push;
+    .scope S_0x7fdc6ae00430;
+T_2 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x7fdc6ae10b20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x7fdc6ae10bc0_0, 0, 1;
+    %end;
+    .thread T_2;
+    .scope S_0x7fdc6ae00430;
+T_3 ;
+    %delay 20, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x7fdc6ae10bc0_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x7fdc6ae10bc0_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x7fdc6ae10bc0_0, 0, 1;
+    %delay 40, 0;
+    %vpi_call 2 35 "$finish" {0 0 0};
+    %end;
+    .thread T_3;
+    .scope S_0x7fdc6ae00430;
+T_4 ;
+    %vpi_call 2 39 "$dumpfile", "alwaysblock.vcd" {0 0 0};
+    %vpi_call 2 40 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x7fdc6ae00430 {0 0 0};
+    %vpi_call 2 41 "$monitor", "t=%3d, x=%d, y=%d, z=%d \012", $time, v0x7fdc6ae10b20_0, v0x7fdc6ae10bc0_0, v0x7fdc6ae10c70_0 {0 0 0};
+    %end;
+    .thread T_4;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "alwaysblock_test.v";
+    "alwaysblock.v";
